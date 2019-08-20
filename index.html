@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Challenge-29</title>
+    <style>
+        body * {
+            font-family: Monoid;
+            font-size: 12px;
+            text-align: left;
+            padding: 5px 0;
+            margin: 5px 0;
+        }
+
+        label,
+        input,
+        button {
+            display: block;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        button {
+            padding: 5px 10px;
+            border-radius: 0.5vw;
+            border: 1px solid #666;
+            cursor: pointer;
+            outline: 0;
+            background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(55, 55, 55, 0.5));
+        }
+
+        button:hover {
+            background: linear-gradient(rgba(55, 55, 55, 0.5), rgba(255, 255, 255, 0.5));
+        }
+
+        input {
+            width: 90%;
+            border: 1px solid #666;
+            border-radius: 0 1vw 5vw 1vw;
+            ;
+            outline: 0;
+            padding: 5px;
+        }
+
+        .table-wrapper {
+            float: left;
+            opacity: 0;
+            transition: 500ms ease-in-out;
+        }
+
+        table {
+            border: 1px solid #666;
+            border-radius: 0.5vw;
+            border-spacing: 0px;
+            padding: 0;
+            margin: 0;
+            max-width: 600px;
+            overflow: hidden;
+
+        }
+
+        section {
+            border-right: 1px solid #666;
+            float: left;
+            width: 400px;
+            margin: 0 20px 0 0;
+        }
+
+        tr,
+        th {
+            border-bottom: 1px solid #666;
+            margin: 0;
+            padding: 5px;
+            text-align: center;
+        }
+
+        tbody tr:nth-child(odd) {
+            background: #eee
+        }
+
+        tbody td {
+            text-align: center;
+        }
+
+        tr:last-child {
+            border-bottom: 0px
+        }
+
+        thead,
+        tfoot {
+            background: #999;
+            color: #333;
+            padding: 1px 2px;
+            margin: 0
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+            padding: 5px;
+            border-radius: 10px;
+        }
+
+        .error {
+            border: 1px solid red;
+        }
+
+        .show {
+            opacity: 1;
+        }
+
+        .select-me {
+            float: left;
+            clear: left;
+            margin-right: 10px;
+        }
+
+        .remove-me {
+            float: left;
+        }
+
+        .highlight {
+            background: red!important;
+        }
+    </style>
+</head>
+
+<body>
+    <div data-js="companyInfo">
+        <h1></h1>
+        <h2></h2>
+    </div>
+    <section>
+        <form data-js="form-register">
+            <legend>Cadastro de carro:</legend>
+            <label for="image">Imagem: </label>
+            <input disabled title="imagem" id="image" data-js="input-img" type="text">
+            <label for="brandModel">Modelo/Marca</label>
+            <input disabled title="modelo" id="brandModel" data-js="inputs" type="text">
+            <label for="year">Ano:</label>
+            <input disabled title="ano" id="year" data-js="inputs" type="text">
+            <label for="plate">Placa</label>
+            <input disabled title="placa" id="plate" data-js="inputs" type="text">
+            <label for="color">Cor: </label>
+            <input disabled title="cor" id="color" data-js="inputs" type="text">
+            <!-- <label for="door">portas: </label>
+            <input disabled title="portas" id="door" data-js="inputs" type="text"> -->
+            <button disabled data-js="submit" type="submit">cadastrar</button>
+            <button data-js="reset" type="text">reset</button>
+        </form>
+        
+        <div data-js="status"></div>
+    </section>
+    <section class="table-wrapper" data-js="table-wrapper">
+        <table data-js="registered-cars">
+                <caption>Lista de carros cadastrados na loja:</caption>
+                <thead>
+                    <tr>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+            <select class="select-me" name="" id="" data-js="select-me">
+                <optgroup>
+                    <option selected value="">Selecione a linha</option>
+                </optgroup>
+            </select>
+            <button class="remove-me" data-js="remove-me">Remova-me</button>
+    </section>
+    <script src=dom.js></script>
+    <script src=xhr.js></script>
+    <script src=util.js></script>
+    <script src=final.js></script>
+</body>
+
+</html>
