@@ -49,7 +49,7 @@
             for (let i in data) {
                 formatedString += `${data[i].name}=${data[i].value}&`;
             };
-            return formatedString.substring(formatedString.length - 1, 0);
+            return formatedString.slice(0, -1);
         }
 
         function validateBeforeCallback() {
