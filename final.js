@@ -40,6 +40,11 @@
         setCars.init();
       },
 
+      removeCar: function removeCar(callBack, plateValue) {
+        const removeCar = XHR("http://localhost:3000/car","DELETE", callBack, "", [{ name: "plate", value: plateValue }]);
+        removeCar.init();
+      },
+
       handleSubmit: function handleSubmit(event) {
         event.preventDefault();
         let events = { //TODO: refazer mais simples
@@ -104,7 +109,6 @@
             UTIL.showTable($tableWrapper.get());
           }
         });
-        
       }
     };
 
@@ -129,8 +133,10 @@
             let $img = doc.createElement("img");
             $img.setAttribute("src", item.value);
             $td.appendChild($img);
+            $td.setAttribute("data-js", item.name);
             return $tr.appendChild($td);
         }
+        $td.setAttribute("data-js", item.name);
         $td.innerText = item.value;
         return $tr.appendChild($td);
       });

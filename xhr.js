@@ -44,10 +44,10 @@
             return xhr.send();
         }
         
-        function formatSendData(data) {
+        function formatSendData(sendData) {
             let formatedString = "";
-            for (let i in data) {
-                formatedString += `${data[i].name}=${data[i].value}&`;
+            for (let i in sendData) {
+                formatedString += `${sendData[i].name}=${sendData[i].value}&`;
             };
             return formatedString.slice(0, -1);
         }

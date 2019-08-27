@@ -48,7 +48,7 @@
         }
         return field.classList.remove("error");
       },
-  
+      
       formatInput: function formatInput(field) {
           let type = field.title;
           let regex = undefined;
@@ -76,14 +76,18 @@
           ? errorMessages[type].message
           : "Campo inválido", regex}
       },
-
+      //TODO: refazer esse metodo
       verifyAndRemove: function verifyAndRemove(table, select, wrapper) {
         let value = select.get().value;
         let tableBody = table.get().querySelector("tbody");
         let removeLastItem = !Boolean(value);
-        removeLastItem 
-          ? tableBody.lastElementChild.remove()
-          : tableBody.children[value].remove();
+        if (removeLastItem) {
+          app.removeCar((data) => {console.log("Removido")}, tableBody.lastElementChild.querySelector("[data-js='plate']").innerText);
+          tableBody.lastElementChild.remove();
+        } else {
+          app.removeCar((data) => {console.log("Removido")}, tableBody.children[value].querySelector("[data-js='plate']").innerText);
+          tableBody.children[value].remove();
+        }
         UTIL.populateSelect(select, table);
         return UTIL.showTable(wrapper.get());
       },
